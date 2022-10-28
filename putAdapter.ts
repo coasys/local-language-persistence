@@ -15,7 +15,7 @@ export class PutAdapter implements PublicSharing {
   constructor(context: LanguageContext) {
     this.#agent = context.agent;
     this.#IPFS = context.IPFS;
-    if ("storagePath" in context.customSettings) { this.#storagePath = context.customSettings["storagePath"] } else { this.#storagePath = "./src/test-temp/languages" };
+    if ("storagePath" in context.customSettings) { this.#storagePath = context.customSettings["storagePath"] } else { this.#storagePath = "./src/tst-temp/languages" };
   }
 
   async createPublic(language: LanguageLanguageInput): Promise<Address> {
