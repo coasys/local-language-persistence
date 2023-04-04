@@ -7,7 +7,7 @@ export default class LangAdapter implements LanguageAdapter {
   #storagePath: string;
 
   constructor(context: LanguageContext) {
-    if ("storagePath" in context.customSettings) { this.#storagePath = context.customSettings["storagePath"] } else { this.#storagePath = "./src/tst-tmp/languages" };
+    if ("storagePath" in context.customSettings) { this.#storagePath = context.customSettings["storagePath"] } else { this.#storagePath = "./tst-tmp/languages" };
   }
 
   async getLanguageSource(address: Address): Promise<string> {

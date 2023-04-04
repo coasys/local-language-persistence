@@ -9,7 +9,7 @@ export default class Adapter implements ExpressionAdapter {
 
   constructor(context: LanguageContext) {
     this.putAdapter = new PutAdapter(context);
-    if ("storagePath" in context.customSettings) { this.#storagePath = context.customSettings["storagePath"] } else { this.#storagePath = "./src/tst-tmp/languages" };
+    if ("storagePath" in context.customSettings) { this.#storagePath = context.customSettings["storagePath"] } else { this.#storagePath = "./tst-tmp/languages" };
   }
 
   async get(address: Address): Promise<void | Expression> {
