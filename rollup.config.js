@@ -13,8 +13,8 @@ export default {
   input: "index.js",
   output: {
     sourcemap: true,
-    format: "es",
-    name: "NoteIpfs",
+    format: "cjs",
+    name: "language-language",
     file: "build/bundle.js",
   },
   plugins: [
