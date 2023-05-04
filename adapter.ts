@@ -15,12 +15,13 @@ export default class Adapter implements ExpressionAdapter {
 
   async get(address: Address): Promise<void | Expression> {
     const metaPath = join(this.#storagePath, `meta-${address}.json`)
-    if (await exists(metaPath)) {
+    try {
+      await exists(metaPath);
       const metaFile = JSON.parse(Deno.readTextFileSync(metaPath));
       console.log("Found meta file info", metaFile);
       return metaFile
-    } else {
+    } catch {
       return null
-    } 
+    }
   }
 }

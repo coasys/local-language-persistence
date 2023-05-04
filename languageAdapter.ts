@@ -14,11 +14,12 @@ export default class LangAdapter implements LanguageAdapter {
 
   async getLanguageSource(address: Address): Promise<string> {
     const bundlePath = join(this.#storagePath, `bundle-${address}.js`);
-    if (await exists(bundlePath)) {
+    try {
+      await exists(bundlePath);
       //@ts-ignore
       const metaFile = Deno.readTextFileSync(bundlePath);
       return metaFile
-    } else {
+    } catch {
       throw new Error("Did not find language source for given address:" + address);
     }
   }
